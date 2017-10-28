@@ -90,7 +90,7 @@ BOOL TSecurity_SetNewAccessLevel(char * user, char * passwd)
       return true;
    }
    else if (strcmp("sma", user) == 0)
-   { 
+   {
       currLevel = LEV_3;
       return true;
    }

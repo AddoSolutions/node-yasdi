@@ -1,1 +1,4 @@
+projects/generic-cmake/build
 projects/generic-cmake/build-gcc
+node_modules
+/build
