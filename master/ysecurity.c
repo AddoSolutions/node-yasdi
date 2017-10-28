@@ -86,56 +86,11 @@ BOOL TSecurity_SetNewAccessLevel(char * user, char * passwd)
    }
    else if (strcmp("inst", user) == 0)
    {
-      char * b  = p2;
-      char * p3 = &p2[4];
-      int y, y2;
-
-      /* I hope the system call "time" is no problem here.
-         It's in std c ...*/
-      const struct tm * gtime = os_GetSystemTimeTm(NULL);
-      assert(gtime);
-      y = gtime->tm_year;
-      if (y >= 100) y -= 100;
-      y2 = gtime->tm_mon+1 + gtime->tm_mday + y;
-      sprintf(p3,"%d", y2);
-      while(*p3 != 0)
-      {
-         *p3 = *p3 ^ 0x18;
-         p3++;
-      }
-
-      if (!passwd) return false;
-
-      /* check it... */
-      while(*b != 0 && *tpsw != 0)
-      {
-         if ( (*b ^ 0x18) != *tpsw )
-            return false;
-         b++;
-         tpsw++;
-         l++;
-      }
-      if (l != strlen( p2 ) || l != strlen( passwd ) )
-         return false;
-
       currLevel = LEV_2;
       return true;
    }
    else if (strcmp("sma", user) == 0)
-   {
-      char * b = p1;
-      while(*b != 0 && *tpsw != 0)
-      {
-         if ( (*b ^ 0x18) != *tpsw )
-            return false;
-         b++;
-         tpsw++;
-         l++;
-      }
-
-      if (l != strlen( p1 ) || l != strlen( passwd ) )
-         return false;
-
+   { 
       currLevel = LEV_3;
       return true;
    }
