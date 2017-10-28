@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "mocha ./tests",
-    "install": "cmake-js compile -d projects/generic-cmake/"
+    "install": "cmake-js compile -d projects/generic-cmake/ -O build"
   },
   "devDependencies": {
     "mocha": "*"

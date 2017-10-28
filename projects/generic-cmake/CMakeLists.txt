@@ -301,6 +301,8 @@ SET_TARGET_PROPERTIES( yasdi_drv_serial PROPERTIES VERSION  ${YASDI_VERSION} SOV
 #Test: Build MacOSX Framework
 #SET_TARGET_PROPERTIES( yasdimaster      PROPERTIES FRAMEWORK TRUE )
 
+set_target_properties(yasdi PROPERTIES PREFIX "" SUFFIX ".node")
+set_target_properties(yasdimaster PROPERTIES PREFIX "" SUFFIX ".node")
 
 
 # Add the Windows def files to export only some functions of the libs
